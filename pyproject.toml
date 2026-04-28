@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "snipp-cli"
+version = "0.2.0"
+description = "Intent-aware tool output compressor for coding agents (Claude Code, Codex, Aider, ...)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "snipp contributors"}]
+keywords = ["llm", "compression", "tokens", "coding-agents", "claude-code", "codex", "aider", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+tokenizers = ["tiktoken>=0.7"]
+hf = ["transformers>=4.40"]
+anthropic = ["anthropic>=0.40"]
+# tree-sitter-language-pack succeeds the unmaintained tree_sitter_languages
+# (which has no Python 3.13 wheels). Optional — Python uses stdlib `ast`;
+# only JS/TS/Go/Rust/Java/C/C++ structure extraction benefits from this.
+treesitter = ["tree-sitter-language-pack>=0.4; python_version >= '3.10'"]
+mcp = [
+    "mcp>=1.20",
+]
+observability = [
+    "structlog>=24.0",
+    "prometheus-client>=0.20",
+    "opentelemetry-api>=1.20",
+    "opentelemetry-sdk>=1.20",
+    "opentelemetry-exporter-otlp-proto-http>=1.20",
+]
+all = [
+    "tiktoken>=0.7",
+    "transformers>=4.40",
+    "anthropic>=0.40",
+    "mcp>=1.20",
+    "prometheus-client>=0.20",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "hypothesis>=6.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+snipp = "snipp.cli:main"
+snipp-mcp = "snipp.mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/devlabs0x/snipp-cli"
+Repository = "https://github.com/devlabs0x/snipp-cli"
+Issues = "https://github.com/devlabs0x/snipp-cli/issues"
+Changelog = "https://github.com/devlabs0x/snipp-cli/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/snipp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

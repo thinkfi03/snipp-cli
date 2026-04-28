@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "snipp hook --event PostToolUse --max-tokens 4000 --model claude"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "snipp hook --event PostToolUse --max-tokens 6000 --model claude"
+          }
+        ]
+      },
+      {
+        "matcher": "Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "snipp hook --event PostToolUse --max-tokens 3000 --model claude"
+          }
+        ]
+      }
+    ]
+  }
+}

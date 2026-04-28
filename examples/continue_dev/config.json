@@ -1,0 +1,16 @@
+{
+  "name": "snipp continue.dev integration",
+  "tools": [
+    {
+      "name": "grep_compressed",
+      "description": "Run grep and return token-efficient summary",
+      "command": ["bash", "-lc", "grep -rn \"$1\" . | snipp --tool grep --model claude"],
+      "args": [{"name": "pattern", "type": "string"}]
+    },
+    {
+      "name": "pytest_compressed",
+      "description": "Run pytest and summarize failures",
+      "command": ["bash", "-lc", "pytest -v 2>&1 | snipp --tool pytest --model claude --stage debug"]
+    }
+  ]
+}

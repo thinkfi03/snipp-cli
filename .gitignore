@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+
+# Test / coverage
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# snipp runtime
+.cache/
+~/.cache/snipp/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Top-level markdown — ignore all by default, only README is committed.
+# Example READMEs in examples/* and any nested docs are NOT affected by this.
+/*.md
+!/README.md
+
+# Local secrets / config
+.env
+.env.local
+~/.pypirc
+.pypirc
