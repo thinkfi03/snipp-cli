@@ -67,10 +67,10 @@ snipp = "snipp.cli:main"
 snipp-mcp = "snipp.mcp.server:main"
 
 [project.urls]
-Homepage = "https://github.com/devlabs0x/snipp-cli"
-Repository = "https://github.com/devlabs0x/snipp-cli"
-Issues = "https://github.com/devlabs0x/snipp-cli/issues"
-Changelog = "https://github.com/devlabs0x/snipp-cli/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/thinkfi03/snipp-cli"
+Repository = "https://github.com/thinkfi03/snipp-cli"
+Issues = "https://github.com/thinkfi03/snipp-cli/issues"
+Changelog = "https://github.com/thinkfi03/snipp-cli/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/snipp"]

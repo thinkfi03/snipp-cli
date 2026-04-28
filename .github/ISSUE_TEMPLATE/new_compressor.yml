@@ -1,0 +1,101 @@
+name: ➕ Add a compressor for a new tool
+description: Propose snipp support for a tool whose output is currently uncompressed
+title: "[compressor] "
+labels: ["new-compressor", "good first issue", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ This is the highest-value contribution to snipp
+
+        Each new compressor unlocks token savings for thousands of users. Most are ~100 lines of Python and merge within a week.
+
+        Existing compressors live in `src/snipp/compressors/`. A good model to copy: `pytest.py`, `npm.py`, or `eslint.py`.
+
+  - type: input
+    id: tool
+    attributes:
+      label: Which tool?
+      description: The CLI command this compressor would target.
+      placeholder: "kubectl, terraform, cargo, mvn, gradle, psql, jq, aws-cli, ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: example_output
+    attributes:
+      label: Sample raw output (paste 50-200 lines)
+      description: Real output from the tool. The more representative, the better. **Don't paste secrets.**
+      render: text
+      placeholder: |
+        $ kubectl get pods -A
+        NAMESPACE     NAME                          READY   STATUS    RESTARTS   AGE
+        default       app-7d4f8c-xyz                1/1     Running   0          2d
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: signal_vs_noise
+    attributes:
+      label: What's the signal vs the noise?
+      description: |
+        For each line type in the raw output: which lines does the agent NEED to read, and which can be elided/summarized?
+      placeholder: |
+        Signal (must keep verbatim):
+        - Pods with status != Running
+        - Restart counts > 0
+        - Summary line ("X namespaces, Y pods")
+
+        Noise (safe to elide):
+        - Healthy pods (Running, 0 restarts)
+        - Repeated namespace prefixes
+        - Long age strings
+    validations:
+      required: true
+
+  - type: input
+    id: estimated_reduction
+    attributes:
+      label: Expected reduction
+      description: Rough guess at compression ratio for typical output of this tool.
+      placeholder: "60-90%"
+
+  - type: dropdown
+    id: detection
+    attributes:
+      label: How can snipp detect this tool?
+      options:
+        - argv[0] (e.g. command starts with `kubectl`)
+        - Output heuristic (e.g. specific header line)
+        - Both
+        - Not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Are you offering to write it?
+      description: We'll happily mentor a first-time contributor through this.
+      options:
+        - label: Yes, I'd like to write the compressor (we'll help review)
+        - label: I can provide more sample outputs and test cases but can't write code
+        - label: I'm just suggesting; happy for someone else to take it
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        ### What happens after you submit
+
+        1. A maintainer triages the issue within 48h
+        2. We confirm scope + tag with `good first issue`
+        3. If you offered to contribute, we walk you through:
+           - Where to add the file (`src/snipp/compressors/<your_tool>.py`)
+           - How to subclass `BaseCompressor`
+           - How to write fidelity tests
+        4. You open a PR; we review; we merge
+
+        Thank you for making snipp more useful for everyone.

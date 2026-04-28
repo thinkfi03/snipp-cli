@@ -1,0 +1,73 @@
+# Labels for snipp. Apply with: github-label-sync --labels .github/labels.yml owner/repo
+# Or click through manually at https://github.com/thinkfi03/snipp-cli/labels
+- name: bug
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: enhancement
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: documentation
+  color: "0075ca"
+  description: "Improvements or additions to docs"
+
+- name: good first issue
+  color: "7057ff"
+  description: "Scoped, well-defined issues for first-time contributors"
+
+- name: help wanted
+  color: "008672"
+  description: "Larger work that's well-defined and ready for someone to claim"
+
+- name: needs-triage
+  color: "ededed"
+  description: "Newly opened, hasn't been categorized yet"
+
+- name: new-compressor
+  color: "fbca04"
+  description: "Adds support for a new tool's output"
+
+- name: dependencies
+  color: "0366d6"
+  description: "Dependency updates from Dependabot"
+
+- name: python
+  color: "3572A5"
+  description: "Python dependency or code change"
+
+- name: github-actions
+  color: "2088FF"
+  description: "GitHub Actions / CI changes"
+
+- name: priority:high
+  color: "b60205"
+  description: "Important — should be addressed soon"
+
+- name: priority:low
+  color: "fef2c0"
+  description: "Nice to have, not urgent"
+
+- name: wontfix
+  color: "ffffff"
+  description: "We've decided not to address this"
+
+- name: duplicate
+  color: "cfd3d7"
+  description: "Already reported elsewhere"
+
+- name: question
+  color: "d876e3"
+  description: "Better suited for Discussions"
+
+- name: security
+  color: "b60205"
+  description: "Security-related issue (use private advisory for vulnerabilities)"
+
+- name: performance
+  color: "f9d0c4"
+  description: "Speed, memory, latency"
+
+- name: breaking-change
+  color: "e11d48"
+  description: "Changes the public API or behavior"

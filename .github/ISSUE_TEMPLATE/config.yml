@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Questions / general discussion
+    url: https://github.com/thinkfi03/snipp-cli/discussions
+    about: For "how do I..." questions, or to chat about ideas before opening an issue.
+  - name: 📖 Documentation
+    url: https://github.com/thinkfi03/snipp-cli/blob/main/README.md
+    about: Most setup questions are answered in the README + examples directory.
+  - name: 🔒 Security vulnerability
+    url: https://github.com/thinkfi03/snipp-cli/security/advisories/new
+    about: For private security disclosure. Do NOT open a public issue for security bugs.

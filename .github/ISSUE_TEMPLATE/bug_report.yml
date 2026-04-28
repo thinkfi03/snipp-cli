@@ -1,0 +1,105 @@
+name: 🐛 Bug report
+description: Something is broken or behaves unexpectedly
+title: "[bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report! Please fill in as much as you can.
+
+  - type: input
+    id: version
+    attributes:
+      label: snipp version
+      description: Output of `snipp --version` or `pip show snipp-cli | grep Version`
+      placeholder: "0.2.0"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: Output of `python --version`
+      placeholder: "3.13.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - WSL
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did the bug occur?
+      options:
+        - CLI (snipp ... )
+        - MCP server (snipp-mcp)
+        - Python API (import snipp)
+        - Plugin
+        - Build / install
+        - Tests
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: "When I ran X, snipp did Y. I expected Z."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Minimal commands or code that reproduce the bug. We can't fix what we can't reproduce.
+      placeholder: |
+        1. `pip install snipp-cli==0.2.0`
+        2. Run `echo "..." | snipp --tool grep`
+        3. Observe ...
+      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual output
+      description: Paste the actual stdout/stderr or traceback. Use snipp on the output if it's huge!
+      render: text
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected output
+      description: What did you expect to happen instead?
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Logs, screenshots, config files, related issues. Drop here.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I searched existing issues and didn't find a duplicate
+          required: true
+        - label: I'm running the latest version (or noted that I'm not)
+          required: true

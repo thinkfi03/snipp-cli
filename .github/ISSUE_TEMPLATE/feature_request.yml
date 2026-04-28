@@ -1,0 +1,64 @@
+name: 💡 Feature request
+description: Suggest a new feature or improvement
+title: "[feat] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We love feature requests, especially with concrete use cases. Vague requests get triaged slower than specific ones.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the user pain. Specific is better than abstract.
+      placeholder: "When I run X with my Cursor session, Y happens, and the workaround is Z. It would be much better if..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would the ideal behavior look like? CLI command, MCP tool name, config option — be concrete.
+      placeholder: |
+        Add a flag `--something` that does ...
+        Or: a new MCP tool `snipp_X` with these arguments ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What else have you tried? Why doesn't it work?
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Estimated scope
+      description: Your best guess at how big this is.
+      options:
+        - Small (< 50 lines)
+        - Medium (50-300 lines)
+        - Large (300+ lines, possibly architectural)
+        - Not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Are you offering to contribute?
+      description: We love when people help. No pressure either way.
+      options:
+        - label: I'd like to implement this myself (with guidance from a maintainer)
+        - label: I can test a PR but can't write the code
+        - label: I'm just suggesting; happy for someone else to take it
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Mockups, links to similar features in other tools, related issues.

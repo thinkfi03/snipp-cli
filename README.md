@@ -499,7 +499,7 @@ Issues and PRs welcome. The smallest contribution path is **a new compressor** â
 To run the test suite:
 
 ```bash
-git clone https://github.com/devlabs0x/snipp-cli.git
+git clone https://github.com/thinkfi03/snipp-cli.git
 cd snipp
 pip install -e ".[dev,all]"
 pytest                      # 232 tests, ~10 seconds
